@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Heredar la vista de CALENDARIO (no kanban) -->
+        <record id="view_op_session_calendar_inherit" model="ir.ui.view">
+            <field name="name">op.session.calendar.inherit</field>
+            <field name="model">op.session</field>
+            <field name="inherit_id" ref="openeducat_timetable.view_op_session_calendar"/>
+            <field name="arch" type="xml">
+                <!-- Modificar atributos del calendario -->
+                <calendar position="attributes">
+                    <attribute name="mode">week</attribute>
+                </calendar>
+            </field>
+        </record>
+    </data>
+</odoo>

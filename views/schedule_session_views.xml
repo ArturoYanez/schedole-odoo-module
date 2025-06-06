@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- Vista LIST para op.session -->
+    <record id="view_schedule_session_tree" model="ir.ui.view">
+        <field name="name">op.session.list</field>
+        <field name="model">op.session</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="display_name"/>
+                <field name="start_datetime"/>
+                <field name="end_datetime"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista FORM heredada -->
+    <record id="view_op_session_form_inherit_schedule" model="ir.ui.view">
+        <field name="name">op.session.form.inherit.schedule</field>
+        <field name="model">op.session</field>
+        <field name="inherit_id" ref="openeducat_timetable.view_op_session_form"/>
+        <field name="arch" type="xml">
+            <!-- Reemplaza 'name' por 'display_name' en el título -->
+            <xpath expr="//h1/field[@name='name']" position="replace">
+                <field name="display_name"/>
+            </xpath>
+            <!-- Añade classroom_code después de faculty_id -->
+            <field name="faculty_id" position="after">
+                <field name="classroom_code"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Vista de Horarios Custom Heredado 
+    <record id="view_custom_op_session_calendar" model="ir.ui.view">
+        <field name="model">op.session</field>
+        <field name="arch" type="xml">
+            <calendar string="Horario" 
+                  date_start="start_datetime" 
+                  date_stop="end_datetime"
+                  mode="week"
+                  js_class="calendar_op_session_custom"
+                  color="faculty_id">
+                <field name="display_name"/>
+                <field name="subject_id"/>
+                <field name="faculty_id"/>
+                <field name="batch_id"/>
+            </calendar>
+        </field>
+    </record>
+    -->
+  </data>
+</odoo>

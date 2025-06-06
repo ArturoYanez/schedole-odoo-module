@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- Acciónes -->
+
+    <!-- Accion para ver registros de sesiones de clase -->
+    <record id="action_schedule_sessions" model="ir.actions.act_window">
+      <field name="name">Sesiones</field>
+      <field name="res_model">op.session</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Accion para vista de horarios -->
+    <record id="action_custom_schedule_calendar" model="ir.actions.act_window">
+        <field name="name">Horario</field>
+        <field name="res_model">op.session</field>
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="schedule.view_custom_op_session_calendar"/>
+    </record>
+
+    <!-- Menús -->
+    <menuitem
+        id="menu_schedule_root"
+        name="Gestion de Horarios"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_schedule_sessions"
+        name="Sesiones"
+        parent="menu_schedule_root"
+        sequence="20"
+        action="action_schedule_sessions"/>
+
+    <!-- Menú personalizado -->
+    <menuitem
+        id="menu_custom_schedule_calendar"
+        name="Horario de Clases"
+        parent="menu_schedule_root"
+        action="action_custom_schedule_calendar"/>
+
+  </data>
+</odoo>

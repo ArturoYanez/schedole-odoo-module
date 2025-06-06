@@ -1,0 +1,9 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Asume que ya existen registros demo para op.batch y op.classroom -->
+        <record id="timetable_demo_1" model="op.timetable">
+            <field name="batch_id" ref="batch_demo"/> <!-- ref al batch demo -->
+            <field name="classroom_id" ref="classroom_demo_101"/> <!-- ref al aula -->
+        </record>
+    </data>
+</odoo>
